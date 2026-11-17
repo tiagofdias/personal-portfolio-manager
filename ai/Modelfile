@@ -1,0 +1,22 @@
+# Ollama model definition for Personal Portfolio Manager.
+#
+#   ollama pull qwen3:4b
+#   ollama create portfolio-analyst -f ai/Modelfile
+#
+# After fine-tuning (see ai/finetune/README.md), replace the FROM line with
+# the path to your exported GGUF, e.g.:
+#   FROM ./finetune/outputs/portfolio-analyst-Q4_K_M.gguf
+#
+# Qwen3 is Apache-2.0 licensed: free to use, modify and redistribute.
+# Smaller/faster alternative: qwen3:1.7b. Stronger (needs ~6 GB RAM): qwen3:8b.
+
+FROM qwen3:4b
+
+# The app sends its own detailed system prompt with live facts on every
+# request; this one only applies if you chat with the model directly.
+SYSTEM """You are a careful, honest investment educator. Portfolios are described in percentages only. Explain good and bad points, match advice to the person's risk profile, prefer diversification and low costs, never invent numbers, and never promise returns. /no_think"""
+
+PARAMETER temperature 0.3
+PARAMETER top_p 0.9
+PARAMETER num_ctx 8192
+PARAMETER repeat_penalty 1.05
