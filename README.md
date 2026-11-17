@@ -82,3 +82,17 @@ the app's data folder to add or correct assets without rebuilding.
 ```bash
 cargo test
 ```
+
+## License
+
+Free and open source, licensed under either of
+
+- Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE))
+- MIT license ([LICENSE-MIT](LICENSE-MIT))
+
+at your option. Unless you explicitly state otherwise, any contribution you
+submit for inclusion in this project is dual licensed as above, without any
+additional terms or conditions.
+
+The default AI model, Qwen3-4B, is licensed separately under Apache-2.0 by its
+authors and is downloaded by Ollama, not distributed with this repository.
